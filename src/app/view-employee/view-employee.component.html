@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+<h3>Employee Data</h3>
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th scope = "col">Employee Id</th>
+            <th scope = "col">Employee Name</th>
+            <th scope = "col">Employee Designation</th>
+            <th scope = "col">Employee Salary</th>
+            <th scope = "col">Employee DOJ</th>
+            <th scope = "col">Employee skills</th>
+            <th scope = "col">Update</th>
+            <th scope = "col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of empdata; let i = index">
+            <td>{{item.id}}</td>
+            <td>{{item.fname}} {{item.lname}}</td>
+            <td>{{item.designation}}</td>
+            <td>{{item.salary | currency:"INR"}}</td>
+            <td>{{item.doj | date:"dd-MM-yyyy"}}</td>
+            <td>{{item.skills}}</td>
+            <td><a (click)="navigateTo(item.id)" class="fa fa-edit custom text-danger"></a></td>
+            <td><a (click) = "deleteEmp(item.id,item.fname)" class="fa fa-remove custom text-danger"></a></td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="/searchEmployee"><i class="fa fa-database text-warning"></i> Employee Management App</a>
+    <span *ngIf="admin" class="navbar-brand">(Admin Portal)</span>
+    <span *ngIf="!admin" class="navbar-brand">(Employee Portal)</span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a *ngIf="admin" class="nav-link" href="/viewEmployee"><i class="fa fa-book text-warning"></i> View Employee</a>
+        &nbsp;
+        <a (click)="updatemyprofile()" *ngIf="!admin" class="nav-link" href=""><i class="fa fa-user text-warning"></i> Update My Profile</a>
+        &nbsp;
+        <a *ngIf="admin" class="nav-link" href="/addEmployee"><i class="fa fa-plus text-warning"></i> Add New Employee</a>
+        &nbsp;
+        <a class="nav-link" href="/searchEmployee"><i class="fa fa-search text-warning"></i> Search Employee</a>
+        &nbsp; &nbsp;
+        <a (click)="logout()" class="nav-link ml-5" href="/login"><i class="fa fa-sign-out text-warning"></i> Logout</a>
+      </div>
+    </div>
+  </nav>

@@ -1,0 +1,43 @@
+<app-navbar></app-navbar>
+<form #searchemployeeForm="ngForm" style="display: inline">
+    
+    <label for="Search By">Search By</label> &nbsp;
+    <Select (change)="search($event)" name="Searchby"  required>
+        <option value="id">Employee id</option>
+        <option value="fname">First Name</option>
+        <option value="designation">Designation</option>
+        <option *ngIf="admin" value="salary">Salary</option>
+        <option *ngIf="admin" value="doj">DOJ</option>
+        <option value="skills">Skills</option>
+    </Select>
+    &nbsp;
+    <label for="value">Value</label> &nbsp;
+    <input type="text" (change)="getValue($event)" name="value" placeholder="value" required> &nbsp;
+    <button type="submit" (click)="getData()" class="btn btn-sm btn-success">Search <i class="fa fa-search"></i></button>
+</form>    
+<hr class="bg-success"/>
+<h4>Employee Data</h4>
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th scope = "col">Employee Id</th>
+            <th scope = "col">Employee Name</th>
+            <th scope = "col">Employee Designation</th>
+            <th *ngIf="admin" scope = "col">Employee Salary</th>
+            <th *ngIf="admin" scope = "col">Employee DOJ</th>
+            <th scope = "col">Employee skills</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of empdata; let i = index">
+            <td>{{item.id}}</td>
+            <td>{{item.fname}} {{item.lname}}</td>
+            <td>{{item.designation}}</td>
+            <td *ngIf="admin">{{item.salary | currency:"INR"}}</td>
+            <td *ngIf="admin">{{item.doj}}</td>
+            <td>{{item.skills}}</td>
+            
+        </tr>
+    </tbody>
+</table>

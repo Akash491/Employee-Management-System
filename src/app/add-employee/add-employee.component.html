@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+<div class="card">
+    <div class="card-header">
+        <div class="h4 text-info">Add new Employee</div>
+        <div *ngIf="addedFlag" class="alert alert-primary" role="alert">
+            <i class="fa fa-check text-success"></i>
+            Employee Added Successfully !!!
+          </div>
+    </div>
+    <div class="card-body">
+        <form #employeeForm="ngForm" (ngSubmit) = "addEmployee(employeeForm)" class="container-sm p-5 bg-info mb-8 border-danger mt-8 ml-8 mr-8">
+            <img src="../../assets/person.png" class="image">
+            <div class="form-group">
+                <label for="First Name">First Name <i class="fa fa-user text-warning"></i></label>
+                <input type="text" name="fname" [(ngModel)]="firstName" class="form-control" id="First Name" placeholder="e.g. (John)" required>
+            </div>
+            <div class="form-group">
+                <label for="Last Name">Last Name <i class="fa fa-user text-warning"></i></label>
+                <input type="text" name="lname" [(ngModel)]="lastName"  class="form-control" id="Last Name" placeholder="e.g. (Doe)" required>
+            </div>
+            <div class="form-group">
+                <label for="Designation">Designation <i class="fa fa-group text-warning"></i></label>
+                <input type="text" name="designation" [(ngModel)]="Designation"  class="form-control" id="Designation" placeholder="e.g. (Software Engineer)" required>
+            </div>
+            <div class="form-group">
+            <label for="Salary">Salary  <i class="fa fa-money text-warning"></i> </label>
+            <input type="number" name="salary" [(ngModel)]="Salary"  class="form-control" id="Salary" placeholder="e.g. (450000)" required>
+            </div>
+            <div class="form-group">
+            <label for="DOJ">DOJ <i class="fa fa-calendar text-warning"></i></label>
+            <input type="date" name="doj" [(ngModel)]="doj"  class="form-control" id="DOJ" required>
+            </div>
+            <div class="form-group">
+                <label for="skills">skills <i class="fa fa-star text-warning"></i></label>
+                <input type="text" name="skills" [(ngModel)]="skills"  class="form-control" id="skills" placeholder="e.g. (Java,Python)" required>
+            </div>
+            <button type="submit" class="custom-centered ml-5 btn btn-primary">Add new Employee  <i class="fa fa-plus text-white"></i></button>
+        </form>
+  </div>
+  </div>
+
